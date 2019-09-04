@@ -104,3 +104,21 @@ const btnChange = document.querySelectorAll(".btn").forEach(item => {
 		event.target.style.backgroundColor = "purple";
 	});
 });
+
+// 11. stop propagation
+const buttons = document.querySelectorAll(".btn");
+const sec = document.querySelector(".content-pick");
+
+function clickEvent(event) {
+	event.stopPropagation();
+	alert("a button was clicked");
+}
+function stopEvent() {
+	alert("propagation stopped");
+}
+
+buttons.forEach(btn => {
+	btn.addEventListener("click", clickEvent);
+});
+
+sec.addEventListener("click", stopEvent);
